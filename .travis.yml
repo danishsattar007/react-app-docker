@@ -1,0 +1,10 @@
+sudo : required
+services:
+    - docker
+
+before_install:
+    - docker build -t danishsattar/react-app-gradeflow -f Dockerfile.dev .
+
+script:
+    - docker run danishsattar/react-app-gradeflow npm run test -- --coverage
+ 
