@@ -8,3 +8,12 @@ before_install:
 script:
     - docker run danishsattar/react-app-gradeflow npm run test -- --coverage
  
+deploy:
+    provider: elasticbeanstalk
+    region: "us-west-2"
+    app: "docker"
+    env: "Docker-env"
+    bucket_name: "elasticbeanstalk-bucket from s3"
+    bucket_path: "docker"
+on:
+    branch: master
